@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0271e1c57243a54094b72055c356c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualTarget: {fileID: 0}
+  visualTarget: {fileID: 719495642}
   localAxis: {x: 0, y: 0, z: 0}
   resetSpeed: 5
   followAngleThreshold: 45
