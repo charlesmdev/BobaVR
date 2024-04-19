@@ -1,11 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -59,6 +54,7 @@ public class ButtonFollowVisual : MonoBehaviour
                 isFollowing = false;
                 freeze = true;
             }
+            Debug.LogWarning("Following finger");
             // Call the onPressed event here, Scripts for events such as pouring go here
             onPressed?.Invoke();
         }
