@@ -123,6 +123,34 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &52545194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7174479153408157608, guid: 9fcdd432215c3774b8dcf476d08a6519,
+    type: 3}
+  m_PrefabInstance: {fileID: 4491502527748995127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &52545199
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52545194}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &75324046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3085,10 +3113,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cup
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7229285030648486999, guid: 9fcdd432215c3774b8dcf476d08a6519, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7174479153408157608, guid: 9fcdd432215c3774b8dcf476d08a6519,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 52545199}
   m_SourcePrefab: {fileID: 100100000, guid: 9fcdd432215c3774b8dcf476d08a6519, type: 3}
 --- !u!1001 &6352284030020850722
 PrefabInstance:
@@ -3098,6 +3131,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3031916651579516136, guid: 3a94f93c7cc424c4c8a7fdecbdcdc644,
+        type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031916651579516136, guid: 3a94f93c7cc424c4c8a7fdecbdcdc644,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031916651579516136, guid: 3a94f93c7cc424c4c8a7fdecbdcdc644,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4549533738108922951, guid: 3a94f93c7cc424c4c8a7fdecbdcdc644,
         type: 3}
       propertyPath: m_Name
