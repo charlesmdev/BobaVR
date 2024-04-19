@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -54,7 +55,7 @@ public class ButtonFollowVisual : MonoBehaviour
                 isFollowing = false;
                 freeze = true;
             }
-            Debug.LogWarning("Following finger");
+            Debug.LogWarning("Following finger, Pressed");
             // Call the onPressed event here, Scripts for events such as pouring go here
             onPressed?.Invoke();
         }
@@ -82,6 +83,7 @@ public class ButtonFollowVisual : MonoBehaviour
         if (hover.interactorObject is XRPokeInteractor)
         {
             freeze = false;
+            Debug.LogWarning("Released");
             // Call the onReleased event here
             onReleased?.Invoke();
         }
