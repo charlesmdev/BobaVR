@@ -54,6 +54,7 @@ public class ButtonFollowVisual : MonoBehaviour
                 isFollowing = false;
                 freeze = true;
             }
+            Debug.LogWarning("Following finger");
             // Call the onPressed event here, Scripts for events such as pouring go here
             onPressed?.Invoke();
         }
