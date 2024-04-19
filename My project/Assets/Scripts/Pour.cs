@@ -25,8 +25,8 @@ public class Pour : MonoBehaviour
     {
         myParticleSystem.Stop();
     }
-    public void OnParticleCollision(GameObject collision)
-    {
-        Debug.LogWarning("Object: " + collision.gameObject.name);
-    }
+    //public void OnParticleCollision(GameObject collision)
+    //{
+        //Debug.LogWarning("Object: " + collision.gameObject.name);
+    //}
 }
