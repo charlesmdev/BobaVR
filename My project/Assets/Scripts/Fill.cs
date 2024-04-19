@@ -13,6 +13,7 @@ public class Fill : MonoBehaviour
 
     public void FillCup()
     {
+        Debug.LogWarning("Filling cup.");
         // Get the y.scale of the Fill object
         // If y.scale is greater than 0.9 or whatever the maxheight is stop filling, play overfill; Else fill the cup starting from 0 to 0.9.
         // Check what type of tea it is, maybe by getting the material of the ParticleSystem.

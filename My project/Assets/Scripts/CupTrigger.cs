@@ -9,6 +9,7 @@ public class CupTrigger : MonoBehaviour
     public UnityEvent Fill, stopFill;
     void OnTriggerEnter(Collider other)
     {
+        Debug.LogWarning("Object: " + other.gameObject.name);
         ParticleSystem liquid = other.GetComponent<ParticleSystem>();
         if (liquid != null)
         {
