@@ -7,12 +7,20 @@ public class CupTriggerFill : MonoBehaviour
 {
     public UnityEvent Fill, stopFill;
 
-    private void OnParticleCollision(GameObject other)
+    void OnParticleCollision(GameObject other)
     {
         Debug.LogWarning("Hi, detects liquid");
     }
     void OnCollisionEnter(Collision collision)
     {
         Debug.LogWarning("Hi, detects object");
+    }
+    void OnParticleTrigger()
+    {
+        Debug.LogWarning("Hi, detects liquid as Trigger");
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.LogWarning("Hi, detects object as Trigger: " + other.gameObject.name);
     }
 }
