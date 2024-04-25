@@ -1,25 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class CupTriggerFill : MonoBehaviour
 {
-    private bool isFilling = false;
-    public UnityEvent Fill, stopFill;
-    public void OnTriggerEnter(Collider other)
+    ParticleSystem liquid;
+    //public UnityEvent Fill, stopFill;
+    //Define a UnityEvent with a parameter of type Material
+    [System.Serializable]
+    public class FillEvent : UnityEvent<GameObject> { }
+    public FillEvent Fill;
+
+    void OnParticleCollision(GameObject other)
     {
-        ParticleSystem liquid = other.GetComponent<ParticleSystem>();
-        if (liquid != null)
+        Debug.LogWarning("Detected particle, by collision: " + other.name);
+        liquid = other.GetComponent<ParticleSystem>();
+        if(liquid != null)
         {
-            Debug.LogWarning("Cup is being triggered, not liquid");
-            stopFill?.Invoke();
+            Debug.LogWarning("Filling");
+            Fill.Invoke(other);
         }
         else
         {
-            // Giving errors now??
-            isFilling = true;
-            Fill?.Invoke();
+            Debug.LogWarning("Stop Filling");
         }
     }
 }
