@@ -6,6 +6,7 @@ public class PartDetect : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
+
         Debug.LogWarning("Hi");
     }
 }
