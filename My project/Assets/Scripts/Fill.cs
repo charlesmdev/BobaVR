@@ -21,6 +21,7 @@ public class Fill : MonoBehaviour
     public float emptyRate = 0.1f; // Rate at which the cup is emptied
 
     public RecipeManager recipeManager;
+    public bool hasLiquid = false;
 
     void Start()
     {
@@ -63,20 +64,24 @@ public class Fill : MonoBehaviour
     {
         //Debug.LogWarning("Filling cup." + liquid.name);
         teaType = liquid.GetComponent<Renderer>().material;
-/*        for (int i = 0; i < recipeManager.currentLiquids.Count; i++)
+        for (int i = 0; i < recipeManager.currentLiquids.Count; i++)
         {
-            if(recipeManager.currentLiquids[i].teaMaterial = teaType)
+            if (recipeManager.currentLiquids[i].teaMaterial == teaType)
             {
-
+                hasLiquid = true;
+                break;
             }
         }
-        recipeManager.AddLiquid(new Liquid(teaType.name, teaType));
+        if(!hasLiquid)
+        {
+            recipeManager.AddLiquid(new Liquid(teaType.name, teaType));
+        }
+        hasLiquid = false;
         Debug.LogWarning("Liquid Count: " + recipeManager.currentLiquids.Count);
         if (recipeManager.currentLiquids.Count > 1) // Checks if there is more than one liquid in the recipeManager
         {
-           teaType = recipeManager.MixLiquids();
-        }*/
-
+            teaType = recipeManager.MixLiquids();
+        }
         //Debug.LogWarning("Particle System: " + liquid.name + " " + teaType.name);
         // Get the y.scale of the Fill object
         // If y.scale is greater than 0.9 or whatever the maxheight is stop filling, play overfill; Else fill the cup starting from 0 to 0.9.
@@ -124,6 +129,7 @@ public class Fill : MonoBehaviour
             if (temp.y <= 0)
             {
                 renderer.enabled = false;
+                recipeManager.currentLiquids.Clear();
             }
         }
         else
