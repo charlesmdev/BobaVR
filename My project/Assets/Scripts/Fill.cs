@@ -20,10 +20,12 @@ public class Fill : MonoBehaviour
     public float fillRate = 0.1f;
     public float emptyRate = 0.1f; // Rate at which the cup is emptied
 
+    public RecipeManager recipeManager;
+
     void Start()
     {
        triggerFill.Fill.AddListener(FillCup);
-       //myParticleSystem = GetComponent<ParticleSystem>(); // New
+        //myParticleSystem = GetComponent<ParticleSystem>(); // New
     }
 
     void Update()
@@ -61,6 +63,20 @@ public class Fill : MonoBehaviour
     {
         //Debug.LogWarning("Filling cup." + liquid.name);
         teaType = liquid.GetComponent<Renderer>().material;
+/*        for (int i = 0; i < recipeManager.currentLiquids.Count; i++)
+        {
+            if(recipeManager.currentLiquids[i].teaMaterial = teaType)
+            {
+
+            }
+        }
+        recipeManager.AddLiquid(new Liquid(teaType.name, teaType));
+        Debug.LogWarning("Liquid Count: " + recipeManager.currentLiquids.Count);
+        if (recipeManager.currentLiquids.Count > 1) // Checks if there is more than one liquid in the recipeManager
+        {
+           teaType = recipeManager.MixLiquids();
+        }*/
+
         //Debug.LogWarning("Particle System: " + liquid.name + " " + teaType.name);
         // Get the y.scale of the Fill object
         // If y.scale is greater than 0.9 or whatever the maxheight is stop filling, play overfill; Else fill the cup starting from 0 to 0.9.
