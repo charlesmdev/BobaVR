@@ -18,7 +18,7 @@ public class Fill : MonoBehaviour
 
     public float maxFillHeight = 0.9f;
     public float fillRate = 0.1f;
-    public float emptyRate = 0.1f; // Rate at which the cup is emptied
+    public float emptyRate = 0.1f; 
 
     public RecipeManager recipeManager;
     public bool hasLiquid = false;
@@ -80,6 +80,7 @@ public class Fill : MonoBehaviour
         Debug.LogWarning("Liquid Count: " + recipeManager.currentLiquids.Count);
         if (recipeManager.currentLiquids.Count > 1) // Checks if there is more than one liquid in the recipeManager
         {
+            Debug.LogWarning("Mixing Liquids, Liquid Count: " + recipeManager.currentLiquids.Count);
             teaType = recipeManager.MixLiquids();
         }
         //Debug.LogWarning("Particle System: " + liquid.name + " " + teaType.name);
@@ -107,8 +108,7 @@ public class Fill : MonoBehaviour
             Debug.LogWarning("Renderer not found");
         }
     }
-    // Remove the Liquid
-    public void Pour() // Was RemoveLiquid()
+    public void Pour() 
     {
         Renderer renderer = GetComponentInChildren<MeshRenderer>();
         if (renderer != null)

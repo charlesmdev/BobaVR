@@ -15,7 +15,7 @@ public class RecipeManager : MonoBehaviour
     {
         currentLiquids.Add(liquid);
     }
-    public Material MixLiquids() //  public Material MixLiquids(Liquid liquid)
+    public Material MixLiquids()
     {
         if(currentLiquids.Count == 0)
         {
@@ -30,6 +30,7 @@ public class RecipeManager : MonoBehaviour
         
         Material mixedMaterial = new Material(Shader.Find("Standard"));
         mixedMaterial.color = mixedColor;
+        Debug.LogWarning(mixedMaterial);
 
         return mixedMaterial;
     }
