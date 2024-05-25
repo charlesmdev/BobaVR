@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 3695000084912021852}
   - component: {fileID: 6768522363563565035}
   m_Layer: 0
-  m_Name: CupTestFill
+  m_Name: CupTestFill - Copy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

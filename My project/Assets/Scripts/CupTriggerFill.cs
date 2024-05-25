@@ -15,11 +15,11 @@ public class CupTriggerFill : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        Debug.LogWarning("Detected particle, by collision: " + other.name);
+        //Debug.LogWarning("Detected particle, by collision: " + other.name);
         liquid = other.GetComponent<ParticleSystem>();
         if(liquid != null)
         {
-            Debug.LogWarning("Filling");
+            //Debug.LogWarning("Filling");
             Fill.Invoke(other);
         }
         else
