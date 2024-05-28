@@ -18,9 +18,9 @@ public class Fill : MonoBehaviour
 
     public float maxFillHeight = 0.9f;
     public float fillRate = 0.1f;
-    public float emptyRate = 0.1f; 
+    public float emptyRate = 0.1f;
 
-    public RecipeManager recipeManager;
+    public LiquidManager liquidManager;
     public bool hasLiquid = false;
 
     void Start()
@@ -64,9 +64,9 @@ public class Fill : MonoBehaviour
     {
         //Debug.LogWarning("Filling cup." + liquid.name);
         teaType = liquid.GetComponent<Renderer>().material;
-        for (int i = 0; i < recipeManager.currentLiquids.Count; i++)
+        for (int i = 0; i < liquidManager.currentLiquids.Count; i++)
         {
-            if (recipeManager.currentLiquids[i].teaMaterial == teaType)
+            if (liquidManager.currentLiquids[i].teaMaterial == teaType)
             {
                 hasLiquid = true;
                 break;
@@ -74,14 +74,18 @@ public class Fill : MonoBehaviour
         }
         if(!hasLiquid)
         {
-            recipeManager.AddLiquid(new Liquid(teaType.name, teaType));
+            liquidManager.AddLiquid(new Liquid(teaType.name, teaType));
         }
         hasLiquid = false;
-        Debug.LogWarning("Liquid Count: " + recipeManager.currentLiquids.Count);
-        if (recipeManager.currentLiquids.Count > 1) // Checks if there is more than one liquid in the recipeManager
+        Debug.LogWarning("Liquid Count: " + liquidManager.currentLiquids.Count);
+        if (liquidManager.currentLiquids.Count > 1) // Checks if there is more than one liquid in the liquidManager
         {
-            Debug.LogWarning("Mixing Liquids, Liquid Count: " + recipeManager.currentLiquids.Count);
-            teaType = recipeManager.MixLiquids();
+            Debug.LogWarning("Mixing Liquids, Liquid Count: " + liquidManager.currentLiquids.Count);
+            teaType = liquidManager.MixLiquids();
+            if (teaType == null)
+            {
+                Debug.LogError("Failed to mix liquids. teaType is null.");
+            }
         }
         //Debug.LogWarning("Particle System: " + liquid.name + " " + teaType.name);
         // Get the y.scale of the Fill object
@@ -116,20 +120,20 @@ public class Fill : MonoBehaviour
             float emptyAmount = Time.deltaTime * emptyRate;
             temp = transform.localScale;
 
-            Debug.LogWarning("Filled temp.y: " + temp.y);
+            //Debug.LogWarning("Filled temp.y: " + temp.y);
                                            
             temp.y -= emptyAmount;
 
             temp.y = Mathf.Clamp(temp.y, 0f, maxFillHeight);
 
-            Debug.LogWarning("Poured temp.y: " + temp.y);
+            //Debug.LogWarning("Poured temp.y: " + temp.y);
 
             transform.localScale = temp;
 
             if (temp.y <= 0)
             {
                 renderer.enabled = false;
-                recipeManager.currentLiquids.Clear();
+               liquidManager.currentLiquids.Clear();
             }
         }
         else
